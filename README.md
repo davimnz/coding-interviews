@@ -1,1 +1,1 @@
-# coding-interviews
+# Coding interviews repository
