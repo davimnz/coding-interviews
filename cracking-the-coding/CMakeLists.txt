@@ -6,4 +6,5 @@ set(GCC_COVERAGE_COMPILE_FLAGS
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
 # Choose a chapter to run
-add_subdirectory(chapter_1)
+# add_subdirectory(chapter_1)
+add_subdirectory(chapter_2)
