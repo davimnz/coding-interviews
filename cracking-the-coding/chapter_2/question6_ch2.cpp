@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include <initializer_list>
 
 class Node {
@@ -16,6 +17,7 @@ class DoublyLinkedList {
   DoublyLinkedList() : head(nullptr), tail(nullptr) {};
   DoublyLinkedList(std::initializer_list<int> init);
   ~DoublyLinkedList();
+  bool IsPalindrome();
   void push_front(int data);
   void push_back(int data);
   void Print();
@@ -44,6 +46,25 @@ DoublyLinkedList::~DoublyLinkedList() {
   delete node_ptr;
 }
 
+/*
+  Time complexity : O(n)
+  Memory complexity : O(1)
+*/
+bool DoublyLinkedList::IsPalindrome() {
+  Node *ptr_1 = head;
+  Node *ptr_2 = tail;
+  bool palindrome = true;
+  while (ptr_1 != ptr_2) {
+    if (ptr_1->data < ptr_2->data) {
+      palindrome = false;
+      break;
+    }
+    ptr_1 = ptr_1->next;
+    ptr_2 = ptr_2->prev;
+  }
+  return palindrome;
+}
+
 void DoublyLinkedList::push_front(int data) {
   Node *node = new Node(data);
   node->next = head;
@@ -58,12 +79,12 @@ void DoublyLinkedList::push_front(int data) {
 }
 
 void DoublyLinkedList::push_back(int data) {
-  Node *node = new Node(data);
   if (head == nullptr && tail == nullptr) {
     push_front(data);
     return;
   }
   else {
+    Node *node = new Node(data);
     tail->next = node;
     node->prev = tail;
     node->next = nullptr;
@@ -84,7 +105,20 @@ void DoublyLinkedList::Print() {
 }
 
 int main() {
-  DoublyLinkedList list_1{10, 5, 20, 5, 5, 10, 10};
+  DoublyLinkedList list_1{1, 3, 5, 5, 3, 1},
+                   list_2{5},
+                   list_3{1, 2, 1},
+                   list_4{1, 1},
+                   list_5{0, 1, 2, 3};
   list_1.Print();
+  list_2.Print();
+  list_3.Print();
+  list_4.Print();
+  list_5.Print();
+  assert(list_1.IsPalindrome() == true); // ok
+  assert(list_2.IsPalindrome() == true); // ok
+  assert(list_3.IsPalindrome() == true); // ok
+  assert(list_4.IsPalindrome() == true); // ok
+  assert(list_5.IsPalindrome() == false); // ok
   return 0;
 }
