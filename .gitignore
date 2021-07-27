@@ -31,6 +31,5 @@
 *.out
 *.app
 
-**/build
-**/.vscode
-**/cracking-the-coding/todo.txt
+# Text files
+*.txt
