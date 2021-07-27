@@ -1,0 +1,43 @@
+Chapter1:
+
+  TODO:
+    - Question1: Do bit vector solution. (*)
+    - Question6: redo. (*)
+    - Question7: O(1) memory solution.
+    - Question8: O(1) memory solution.
+  Tips:
+    - Better way to do string concatenation : reserve + push_back. Avoid using stringstream.
+    - Hashtable problems : ask if ASCII is being used. Define a array of 256 (extended) or 128.
+    - Try to solve the problems in place.
+    - std::vector (MUST KNOW: size, capacity, = operator, push_back, [] operator), 
+      std::array, and std::string (similar to std::vector) for the win.
+
+Chapter2:
+  Best Questions : 2.8 (hard optimal solution)
+
+  Tips:
+    - You could reverse the elements of a list with a stack.
+    - Runner technique could avoid length() method.
+    
+  Notes:
+    - Be careful of std::list::erase and std::list::remove methods. You cannot use them 
+      in a for loop because all iterators are updated after calling erase/remove. In practice, 
+      "iterator" does not point to the list anymore and, therefore, you cannot use "++iterator".
+        
+        list.erase(it)
+        std::cout << *it; (ERROR!)
+    
+    - You could use relational operators (<,>,<=,>=) with two pointers p and q of the same type
+      when p and q point to the same object. If p and q point to different objects, then the
+      operation result is unspecified. ($5.9 of the C++11 standard).
+
+    - You cannot return a reference to a local variable!!! (*)
+    
+
+Questions:
+  # When to use size_type and int for index?
+
+
+  # Difference between nullptr and NULL.
+  https://www.quora.com/Whats-the-difference-between-NULL-and-nullptr-in-C++
+  
